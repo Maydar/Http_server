@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<project name="Http_Server" default="buildAll" basedir="../">
+	<target name="buildAll" depends="jar">
+		<echo>Done!</echo>
+	</target>
+	<target name="clean">
+		<delete dir="ant/.classes" />
+	</target>
+	<target name="compile" depends="clean">
+		<mkdir dir="ant/.classes" />
+
+		<javac debug="no" srcdir="src" destdir="ant/.classes"
+			includeAntRuntime="false">
+			<classpath location="libs/commons-collections-3.2.1.jar" />
+			<classpath location="libs/commons-io-2.1.jar" />
+		</javac>
+	</target>
+
+	<target name="jar" depends="compile">
+		<jar destfile="ant/Http_server.jar">
+			<fileset dir="ant/.classes" includes="**/*.class" />
+			<manifest>
+				<attribute name="Main-Class" value="ru.mail.projects.main.Main" />
+				<attribute name="Class-Path" value="." />
+
+			</manifest>
+		</jar>
+
+	</target>
+	<target name="run">
+		<java jar="ant/Http_server.jar" fork="true"
+			args="-a param_1 default_param -b dsdsdsd" />
+	</target>
+	<target name="run_fail">
+		<java jar="ant/Http_server.jar" fork="true"
+			args="-a param_1 default_param -b dsdsdsd def2" />
+	</target>
+</project>

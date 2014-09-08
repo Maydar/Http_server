@@ -1,0 +1,1 @@
+if(typeof __PHJSONPCallback_0 === 'function'){__PHJSONPCallback_0({"status":"ok","data":{"action":"list","email":"biohazard1994@mail.ru","mail_cnt":"142","my_cnt":"10","games_cnt":"0","mamba_cnt":"0","list":["biohazard1994@mail.ru"]}});}
